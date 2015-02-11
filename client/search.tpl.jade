@@ -1,0 +1,13 @@
++esInput(index="songs", placeholder="Search...")
+
++ifEsInputIsEmpty(index="songs")
+	p Search For Players
+
++ifEsIsSearching(index="songs")
+	p Loading...
+else
+	+esEach(index="songs")
+		+song
+
++ifEsHasNotResults(index="songs")
+	p No Results Found!
