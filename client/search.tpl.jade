@@ -1,16 +1,26 @@
-+esInput index="songs" placeholder="Search..."
+.row
+	.col-xs-12.search-box
+		+esInput index="songs" placeholder="Search..."
 
 +ifEsInputIsEmpty index="songs"
-	p Search For Songs
-
-+ifEsIsSearching index="songs"
-	p Loading...
+	.row
+		.col-xs-12.status Search For Songs
 else
-	ul
-		+esEach index="songs"
-			li
-				| {{artist}} {{title}} {{lastYearPlayed}}
-
-
-+ifEsHasNoResults index="songs"
-	p No Results Found!
+	.search-results
+		+ifEsIsSearching index="songs"
+			.row
+				.col-xs-12.status Loading...
+		else
+			+ifEsHasNoResults index="songs"
+				.row
+					.col-xs-12.status Nope, Haven't Played It!
+			else
+				.row.header
+					.col-xs-3 Artist
+					.col-xs-6 Title
+					.col-xs-3 Last Year Played
+				+esEach index="songs"
+						.row.song
+							.col-xs-3 {{artist}}
+							.col-xs-6 {{title}}
+							.col-xs-3 {{lastYearPlayed}}
