@@ -1,0 +1,13 @@
+h1 Have We Played This?
+.links
+	a(href="{{pathFor route='home'}}") Home
+.container
+	.row.header
+		.col-xs-3 Artist
+		.col-xs-6 Title
+		.col-xs-3 Year
+	+each songs
+		.row.song
+			.col-xs-3 {{artist}}
+			.col-xs-6 {{title}}
+			.col-xs-3 {{lastYearPlayed}}
