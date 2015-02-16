@@ -1,3 +1,3 @@
 Template.list.helpers({
-	songs: function() { return Songs.find(); }
+	songs: function() { return Songs.find({}, { sort: [['lastYearPlayed', 'desc'], ['artist'], ['title']] }); }
 });
